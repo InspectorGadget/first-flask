@@ -8,15 +8,15 @@ def dummy_api():
     name = request.args.get("name")
 
     if name is None:
-        return jsonify(error="Invalid GET Parameters")
+        return jsonify(error="Invalid GET Parameters"), 400
 
     return jsonify(data=name), 200
 
 
 @app.route("/hello")
 def hi():
-    return jsonify(data="Hi")
+    return jsonify(data="Hi"), 200
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
